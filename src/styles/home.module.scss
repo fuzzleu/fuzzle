@@ -1,0 +1,44 @@
+@use "./index.scss" as *;
+
+.homeScreen {
+	@include flex-center;
+	width: 100vw;
+	height: 100vh;
+	background: $dark-0;
+	.wrapBox {
+		width: 500px;
+		height: fit-content;
+	}
+	.logoBlock {
+		@include flex-center;
+		width: 100%;
+		margin-bottom: 60px;
+	}
+	.homeButtons {
+		@include flex-row;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		.homeButton {
+			@include flex-center;
+			width: 49%;
+			height: 100px;
+			border: 1px solid $dark-7;
+			border-radius: 14px;
+			cursor: pointer;
+			background: transparent;
+			@include transition(160ms);
+			font-size: large;
+			color: $dark-8;
+			&:first-child {
+				width: 100%;
+				margin-bottom: 20px;
+			}
+			&:hover {
+				background: $dark-1;
+			}
+			&:active {
+				background: $dark-2;
+			}
+		}
+	}
+}

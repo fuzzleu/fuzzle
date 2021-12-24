@@ -1,0 +1,38 @@
+{
+  "name": "fuzzle-next",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "next start",
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PAXANDDOS/fuzzle-next.git"
+  },
+  "keywords": [
+    "photoshop"
+  ],
+  "author": "Paul Litovka",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/PAXANDDOS/fuzzle-next/issues"
+  },
+  "homepage": "https://github.com/PAXANDDOS/fuzzle-next#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "next": "^12.0.7",
+    "nookies": "^2.5.2",
+    "nprogress": "^0.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass": "^1.45.1"
+  },
+  "devDependencies": {
+    "eslint": "8.5.0",
+    "eslint-config-next": "12.0.7"
+  }
+}

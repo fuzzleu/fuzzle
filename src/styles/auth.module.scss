@@ -1,0 +1,65 @@
+@use "./index.scss" as *;
+
+.auth {
+	@include flex-center;
+	width: 100vw;
+	height: 100vh;
+	background: $dark-0;
+	.authBlock {
+		@include flex-column;
+		width: 500px;
+		height: fit-content;
+
+		.authHeader {
+			font-size: xx-large;
+		}
+		.authInfo {
+			font-size: large;
+			color: $dark-7;
+		}
+		form {
+			@include flex-center;
+			flex-direction: column;
+			width: 100%;
+			height: fit-content;
+			margin-top: 30px;
+			input {
+				width: 100%;
+				height: 50px;
+				border: 2px solid $dark-5;
+				border-radius: 6px;
+				background: transparent;
+				font-size: large;
+				padding: 4px 8px;
+				margin-top: 14px;
+				@include transition(160ms);
+				&:focus {
+					border-color: $dark-7;
+				}
+				&[type="submit"] {
+					border: none;
+					background: $dark-5;
+					cursor: pointer;
+					margin-top: 30px;
+					&:hover {
+						background: lighten($dark-5, 5%);
+					}
+				}
+			}
+		}
+		.authOther {
+			@include flex-row;
+			width: 100%;
+			margin-top: 14px;
+			color: $dark-6;
+			a {
+				color: $dark-8;
+				cursor: pointer;
+				margin-left: 8px;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
