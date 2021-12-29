@@ -1,6 +1,7 @@
 import { useState } from "react"
 import nookies from "nookies"
 
+import { Wrapper } from "../../components"
 import style from "../../styles/auth.module.scss"
 
 const ResetPasswordToken = ({ token }) => {
@@ -52,8 +53,8 @@ const ResetPasswordToken = ({ token }) => {
 	}
 
 	return (
-		<div className={style.auth}>
-			<div className={style.authBlock}>
+		<Wrapper title='Change password'>
+			<div className={style.auth}>
 				<h1 className={style.authHeader}>Create your new password</h1>
 				<form onSubmit={(e) => handleSubmit(e.preventDefault())}>
 					<input
@@ -73,7 +74,7 @@ const ResetPasswordToken = ({ token }) => {
 					<input type='submit' value='Submit' />
 				</form>
 			</div>
-		</div>
+		</Wrapper>
 	)
 }
 

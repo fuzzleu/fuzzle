@@ -1,24 +1,41 @@
-import Head from "next/head"
-import style from "../styles/app.module.scss"
-import AppRow from "./Base/AppRow"
-import AppCol from "./Base/AppCol"
+import { useProject } from "./Providers"
 
-const Application = ({ children, user, title }) => {
+import Head from "./Head"
+import AppRow from "../components/Base/AppRow"
+import AppCol from "../components/Base/AppCol"
+import ControlPanel from "../components/ControlPanel"
+import Canvas from "../components/Canvas"
+import style from "../styles/app.module.scss"
+
+const Application = () => {
+	const { project } = useProject()
+
+	return (
+		<div className={style.app}>
+			<AppRow />
+			<div className={style.main} id='main'>
+				{project && <AppCol />}
+				{project && <Canvas />}
+				<ControlPanel />
+			</div>
+		</div>
+	)
+}
+
+export const Wrapper = ({ children, title }) => {
 	return (
 		<>
-			<Head>
-				<title>{title}</title>
-				<meta
-					name='viewport'
-					content='initial-scale=1.0, width=device-width'
-				/>
-			</Head>
-			<div className={style.app}>
-				<AppRow user={user} />
-				<div className={style.main}>
-					<AppCol user={user} />
-					<main>{children}</main>
-				</div>
+			<Head title={title} />
+			<div
+				style={{
+					display: "grid",
+					placeItems: "center",
+					width: "100vw",
+					height: "100vh",
+					background: "#202020",
+				}}
+			>
+				{children}
 			</div>
 		</>
 	)

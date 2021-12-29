@@ -1,0 +1,76 @@
+@use "./index.scss" as *;
+
+.controlPanelResizable {
+	position: absolute;
+	right: 0;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	height: calc(100% - 32px);
+	background: $dark-3;
+	border-top: 4px solid $dark-2;
+	z-index: 1;
+	.handleBox {
+		@include flex-row;
+		justify-content: space-evenly;
+		width: 10px;
+		height: 100%;
+		background: $dark-2;
+		cursor: w-resize;
+		div {
+			width: 1px;
+			height: 100%;
+			background-color: $dark-5;
+		}
+	}
+	.controlPanel {
+		@include flex-column;
+		width: calc(100% - 10px);
+		height: 100%;
+		.controlPanelOptions {
+			width: 100%;
+			height: fit-content;
+			.controlPanelBox {
+				@include flex-column;
+				width: 100%;
+				height: fit-content;
+				background: $dark-5;
+				margin-top: 4px;
+				&:first-child {
+					margin: 0;
+				}
+			}
+			.controlPanelOption {
+				@include flex-row;
+				align-items: center;
+				width: 100%;
+				height: 36px;
+				padding: 0 10px;
+				cursor: pointer;
+				font-size: 14px;
+				color: $dark-7;
+				background: transparent;
+				@include transition;
+				&:hover {
+					background: lighten($dark-5, 5%);
+				}
+			}
+			.controlPanelMenu {
+				padding: 6px 10px;
+				border-top: 2px solid darken($dark-5, 3%);
+				transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+			}
+		}
+		.controlPanelInfo {
+			@include flex-column;
+			width: 100%;
+			height: fit-content;
+			padding: 10px;
+			span {
+				color: $dark-7;
+				font-size: 14px;
+				margin-bottom: 4px;
+			}
+		}
+	}
+}

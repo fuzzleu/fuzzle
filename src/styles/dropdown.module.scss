@@ -1,0 +1,41 @@
+@use "./index.scss" as *;
+
+.dropdown {
+	@include flex-column;
+	position: absolute;
+	min-width: 100px;
+	background: $dark-3;
+	margin-top: 34px;
+	border-radius: 3px;
+	border: 1px solid $dark-4;
+	overflow: hidden;
+	box-shadow: $shadow-darken;
+	z-index: 3;
+	.dropdownBtn {
+		width: 100%;
+		height: 36px;
+		text-align: left;
+		padding: 0 10px;
+		font-size: 14px;
+		background: transparent;
+		@include transition(100ms);
+		&:hover {
+			background: $dark-5;
+			&[name="danger"] {
+				background: $danger-red;
+			}
+		}
+		&:disabled {
+			opacity: 0.4;
+		}
+	}
+	&[name="edit"] {
+		margin-left: 38px;
+	}
+	&[name="image"] {
+		margin-left: 78px;
+	}
+	&[name="view"] {
+		margin-left: 132px;
+	}
+}

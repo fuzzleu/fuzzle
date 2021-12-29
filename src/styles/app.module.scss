@@ -5,6 +5,7 @@
 	width: 100vw;
 	height: 100vh;
 	background: $dark-0;
+	overflow: hidden;
 	.headRow {
 		@include flex-row;
 		justify-content: space-between;
@@ -13,6 +14,7 @@
 		height: 32px;
 		background: $dark-3;
 		padding: 2px 4px;
+		z-index: 4;
 		.controlButtons {
 			width: fit-content;
 			height: 100%;
@@ -27,6 +29,9 @@
 				color: $dark-7;
 				border-radius: 4px;
 				@include transition(30ms);
+				&:disabled {
+					opacity: 0.4;
+				}
 				&:hover {
 					background: $dark-2;
 				}
@@ -42,23 +47,25 @@
 		width: 100%;
 		height: calc(100% - 32px);
 		.headCol {
+			position: absolute;
 			@include flex-column;
-			justify-content: space-between;
 			align-items: center;
-			width: 38px;
-			height: 100%;
+			width: 42px;
+			height: calc(100% - 32px);
 			background: $dark-3;
 			padding: 4px 4px;
-			border-top: 4px solid $dark-0;
+			border-top: 4px solid $dark-2;
+			z-index: 3;
 			.headColBtn {
 				@include flex-center;
 				width: 100%;
-				height: 32px;
+				height: 38px;
 				padding: 2px;
 				background: transparent;
 				font-size: 14px;
 				color: $dark-7;
 				border-radius: 4px;
+				margin-bottom: 6px;
 				@include transition(30ms);
 				&:hover {
 					background: $dark-2;
@@ -67,14 +74,34 @@
 					height: 15px;
 					fill: $svg;
 				}
+				&[name="text"] {
+					svg {
+						height: 20px;
+					}
+				}
 				&.active {
-					background: $dark-2;
+					background: $dark-1;
 				}
 			}
 		}
 		main {
-			width: calc(100% - 32px);
+			width: 100%;
 			height: 100%;
+			z-index: 1;
+			border: 1px solid $dark-2;
+			.canvasBox {
+				@include flex-column;
+				.handle {
+					background: $dark-4;
+					cursor: move;
+					border-radius: 6px 6px 0 0;
+				}
+				#canvas {
+					background: white;
+					box-shadow: $shadow-darken;
+					z-index: 1;
+				}
+			}
 		}
 	}
 }

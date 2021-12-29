@@ -1,59 +1,137 @@
 import { useState } from "react"
-import Link from "next/link"
+import { useProject } from "../Providers"
 
-import { Telegram, GitHub } from "../../lib/icons/Social"
+import { GitHub } from "../../lib/icons/Social"
 import style from "../../styles/app.module.scss"
+import AccountDropdown from "../Dropdowns/AccountDropdown"
+import FileDropdown from "../Dropdowns/FileDropdown"
+import EditDropdown from "../Dropdowns/EditDropdown"
+import ImageDropdown from "../Dropdowns/ImageDropdown"
+import ViewDropdown from "../Dropdowns/ViewDropdown"
+import NewFileModal from "../Modals/NewFileModal"
+import AuthModal from "../Modals/AuthModal"
+import AboutModal from "../Modals/AboutModal"
+import CanvasSizeModal from "../Modals/CanvasSizeModal"
 
-const AppRow = ({ user }) => {
-	const [toggles, setToggles] = useState({
-		account: false,
+const AppRow = () => {
+	const { user, project } = useProject()
+	const [dropdowns, setDropdowns] = useState({
 		file: false,
+		edit: false,
+		image: false,
+		view: false,
+		account: false,
+	})
+	const [modals, setModals] = useState({
+		fileNew: false,
+		auth: false,
+		about: user ? false : true,
+		canvasSize: false,
 	})
 
-	const handleChange = (e) => {
-		setToggles({
-			...toggles,
-			[e.target.name]: !(e.target.value === "true" && true),
+	const handleChange = (e) =>
+		setDropdowns((prevState) => {
+			for (const key in prevState) prevState[key] = false
+			return {
+				...prevState,
+				[e.target.name]: !(e.target.value === "true" && true),
+			}
 		})
-	}
 
 	return (
 		<div className={style.headRow}>
 			<div className={style.controlButtons}>
-				<button className={style.headRowBtn}>File</button>
-				<button className={style.headRowBtn}>Edit</button>
-				<button className={style.headRowBtn}>Image</button>
-				<button className={style.headRowBtn}>View</button>
+				<button
+					className={style.headRowBtn}
+					name='file'
+					value={dropdowns.file}
+					onMouseEnter={handleChange}
+				>
+					File
+				</button>
+				{dropdowns.file && (
+					<FileDropdown
+						setDropdowns={setDropdowns}
+						setModals={setModals}
+					/>
+				)}
+
+				<button
+					className={style.headRowBtn}
+					name='edit'
+					value={dropdowns.edit}
+					disabled={project ? false : true}
+					onMouseEnter={handleChange}
+				>
+					Edit
+				</button>
+				{dropdowns.edit && <EditDropdown setDropdowns={setDropdowns} />}
+
+				<button
+					className={style.headRowBtn}
+					name='image'
+					value={dropdowns.image}
+					disabled={project ? false : true}
+					onMouseEnter={handleChange}
+				>
+					Image
+				</button>
+				{dropdowns.image && (
+					<ImageDropdown
+						setDropdowns={setDropdowns}
+						setModals={setModals}
+					/>
+				)}
+
+				<button
+					className={style.headRowBtn}
+					name='view'
+					value={dropdowns.view}
+					onMouseEnter={handleChange}
+				>
+					View
+				</button>
+				{dropdowns.view && <ViewDropdown setDropdowns={setDropdowns} />}
 			</div>
 			<div className={style.controlButtons}>
 				{user ? (
+					<>
+						<button
+							className={style.headRowBtn}
+							name='account'
+							value={dropdowns.account}
+							onMouseEnter={handleChange}
+						>
+							{user.name}
+						</button>
+						{dropdowns.account && (
+							<AccountDropdown setDropdowns={setDropdowns} />
+						)}
+					</>
+				) : (
 					<button
 						className={style.headRowBtn}
-						name='account'
-						value={toggles.account}
-						onClick={handleChange}
+						onClick={() =>
+							setModals({
+								...modals,
+								auth: !modals.auth,
+							})
+						}
 					>
-						{user.name}
+						Sign in
 					</button>
-				) : (
-					<Link href='/signin'>
-						<a className={style.headRowBtn}>Sign in</a>
-					</Link>
 				)}
 				<button
 					className={style.headRowBtn}
-					onClick={() => console.log(toggles)}
+					onClick={() =>
+						setModals({
+							...modals,
+							about: !modals.about,
+						})
+					}
 				>
 					About
 				</button>
-				<a
-					href='https://t.me/PAXANDDOS'
-					target='_blank'
-					rel='noreferrer'
-					className={style.headRowBtn}
-				>
-					<Telegram />
-				</a>
 				<a
 					href='https://github.com/PAXANDDOS/webster-next'
 					target='_blank'
@@ -63,6 +141,46 @@ const AppRow = ({ user }) => {
 					<GitHub />
 				</a>
 			</div>
+			{modals.fileNew && (
+				<NewFileModal
+					onClose={() =>
+						setModals({
+							...modals,
+							fileNew: !modals.fileNew,
+						})
+					}
+				/>
+			)}
+			{modals.auth && (
+				<AuthModal
+					onClose={() =>
+						setModals({
+							...modals,
+							auth: !modals.auth,
+						})
+					}
+				/>
+			)}
+			{modals.about && (
+				<AboutModal
+					onClose={() =>
+						setModals({
+							...modals,
+							about: !modals.about,
+						})
+					}
+				/>
+			)}
+			{modals.canvasSize && (
+				<CanvasSizeModal
+					onClose={() =>
+						setModals({
+							...modals,
+							canvasSize: !modals.canvasSize,
+						})
+					}
+				/>
+			)}
 		</div>
 	)
 }

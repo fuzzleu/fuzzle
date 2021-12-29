@@ -15,7 +15,7 @@ module.exports = {
 	images: {
 		domains: ["d3djy7pad2souj.cloudfront.net"],
 	},
-	reactStrictMode: true,
+	reactStrictMode: false,
 	env: {
 		API_URL: process.env.API_URL,
 		GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
