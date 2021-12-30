@@ -14,24 +14,6 @@ export default function MyApp({ Component, pageProps }) {
 	const router = useRouter()
 
 	useEffect(() => {
-		document.addEventListener("keydown", (e) => {
-			if (
-				e.ctrlKey == true &&
-				(e.code == "NumpadAdd" ||
-					e.code == "NumpadSubtract" ||
-					e.code == "Equal" ||
-					e.code == "Minus")
-			)
-				e.preventDefault()
-		})
-		document.addEventListener(
-			"wheel",
-			(e) => e.ctrlKey && e.preventDefault(),
-			{ passive: false }
-		)
-	})
-
-	useEffect(() => {
 		router.events.on("routeChangeStart", () => nProgress.start())
 		router.events.on("routeChangeComplete", () => nProgress.done())
 		router.events.on("routeChangeError", () => nProgress.done())

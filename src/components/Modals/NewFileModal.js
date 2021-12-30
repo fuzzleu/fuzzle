@@ -38,7 +38,7 @@ const NewFileModal = ({ onClose }) => {
 			return
 		setProject({
 			name: form.name,
-			canvas: [parseInt(form.width), parseInt(form.height)],
+			canvas: [+form.width, +form.height],
 		})
 		onClose()
 	}
