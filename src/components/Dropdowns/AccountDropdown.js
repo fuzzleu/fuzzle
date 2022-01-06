@@ -2,7 +2,7 @@ import { useProject } from "../Providers"
 import Link from "next/link"
 import { destroyCookie } from "nookies"
 
-import style from "../../styles/dropdown.module.scss"
+import style from "styles/dropdown.module.scss"
 
 const AccountDropdown = ({ setDropdowns }) => {
 	const { setUser } = useProject()

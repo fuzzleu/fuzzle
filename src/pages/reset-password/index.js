@@ -2,8 +2,8 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import nookies from "nookies"
 
-import { Wrapper } from "../../components"
-import style from "../../styles/auth.module.scss"
+import { Wrapper } from "components"
+import style from "styles/auth.module.scss"
 
 const ResetPassword = () => {
 	const router = useRouter()
@@ -57,6 +57,8 @@ const ResetPassword = () => {
 						type='email'
 						placeholder='Your email'
 						maxLength='16'
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
 					/>
 					<input type='submit' value='Send reset link' />
 				</form>

@@ -1,7 +1,8 @@
 import Modal from "./Modal"
-import style from "../../styles/modal.module.scss"
-import { Logo } from "../../lib/icons/Brand"
-import { GitHub, Telegram } from "../../lib/icons/Social"
+
+import style from "styles/modal.module.scss"
+import { Logo } from "lib/icons/Brand"
+import { GitHub, Telegram } from "lib/icons/Social"
 
 const AboutModal = ({ onClose }) => {
 	return (
@@ -45,6 +46,24 @@ const AboutModal = ({ onClose }) => {
 				>
 					<Telegram />
 					<span>Nazar Taran</span>
+				</a>
+				<a
+					href='https://t.me/zeromotivat1on'
+					target='_blank'
+					rel='noreferrer'
+					className={style.headRowBtn}
+				>
+					<Telegram />
+					<span>Alexander Lyannoy</span>
+				</a>
+				<a
+					href='https://t.me/noga_kazaha'
+					target='_blank'
+					rel='noreferrer'
+					className={style.headRowBtn}
+				>
+					<Telegram />
+					<span>Oleh Savich</span>
 				</a>
 			</div>
 		</Modal>

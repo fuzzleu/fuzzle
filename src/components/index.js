@@ -2,11 +2,11 @@ import { useEffect, useRef, useCallback } from "react"
 import { useProject } from "./Providers"
 
 import Head from "./Head"
-import AppRow from "../components/Base/AppRow"
-import AppCol from "../components/Base/AppCol"
-import ControlPanel from "../components/ControlPanel"
-import Canvas from "../components/Canvas"
-import style from "../styles/app.module.scss"
+import AppRow from "./Base/AppRow"
+import AppCol from "./Base/AppCol"
+import ControlPanel from "./ControlPanel"
+import Canvas from "./Canvas"
+import style from "styles/app.module.scss"
 
 const Application = () => {
 	const { project, setProject } = useProject()

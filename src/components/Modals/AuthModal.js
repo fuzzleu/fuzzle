@@ -4,8 +4,8 @@ import { setCookie } from "nookies"
 import { useProject } from "../Providers"
 
 import Modal from "./Modal"
-import { Google } from "../../lib/icons/Social"
-import style from "../../styles/modal.module.scss"
+import { Google } from "lib/icons/Social"
+import style from "styles/modal.module.scss"
 
 const AuthModal = ({ onClose }) => {
 	const { setUser } = useProject()

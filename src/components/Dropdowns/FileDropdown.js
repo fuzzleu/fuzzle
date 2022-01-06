@@ -1,6 +1,7 @@
 import { useRef } from "react"
-import style from "../../styles/dropdown.module.scss"
 import { useProject } from "../Providers"
+
+import style from "styles/dropdown.module.scss"
 
 const FileDropdown = ({ setDropdowns, setModals }) => {
 	const { setProject } = useProject()

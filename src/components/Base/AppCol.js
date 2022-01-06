@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { useProject } from "../Providers"
-import style from "../../styles/app.module.scss"
-import { Cursor, Text } from "../../lib/icons/Misc"
+
+import style from "styles/app.module.scss"
+import { Cursor, Text } from "lib/icons/Misc"
 
 const AppCol = () => {
 	const { project, setProject } = useProject()

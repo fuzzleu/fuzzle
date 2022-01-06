@@ -145,13 +145,15 @@
 				.aboutModal {
 					width: 400px;
 					.aboutModalLogo {
-						@include grid-center;
-						width: 100%;
+						margin: 0 30px;
+						height: fit-content;
+						float: right;
 						svg {
-							width: 200px;
+							height: 130px;
+							fill: transparent;
 						}
-						svg * {
-							fill: $dark-8;
+						svg path {
+							stroke: $dark-8;
 						}
 					}
 

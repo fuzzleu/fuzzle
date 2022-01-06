@@ -1,4 +1,26 @@
 export const Logo = (props) => (
+  <svg viewBox="0 0 135 205" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M54.8 70V52.484a4 4 0 0 1 4-4H127a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v68.258a4 4 0 0 0 4 4h93.6a4 4 0 0 1 4 4v36.484a4 4 0 0 1-4 4H8a4 4 0 0 0-4 4V197a4 4 0 0 0 4 4h42.8a4 4 0 0 0 4-4v-62"
+      stroke="#000"
+      strokeWidth={8}
+      strokeLinecap="round"
+    />
+  </svg>
+)
+
+export const BigLogo = (props) => (
+  <svg viewBox="0 0 135 205" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M54.8 70V52.484a4 4 0 0 1 4-4H127a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v68.258a4 4 0 0 0 4 4h93.6a4 4 0 0 1 4 4v36.484a4 4 0 0 1-4 4H8a4 4 0 0 0-4 4V197a4 4 0 0 0 4 4h42.8a4 4 0 0 0 4-4v-62"
+      stroke="#000"
+      strokeWidth={8}
+      strokeLinecap="round"
+    />
+  </svg>
+)
+
+export const OldLogo = (props) => (
   <svg viewBox="0 0 512 512" mlns="http://www.w3.org/2000/svg" {...props}>
     <path
       fillRule="evenodd"

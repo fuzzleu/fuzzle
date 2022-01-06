@@ -56,9 +56,19 @@
 				}
 			}
 			.controlPanelMenu {
+				@include flex-row;
+				flex-wrap: wrap;
 				padding: 6px 10px;
 				border-top: 2px solid darken($dark-5, 3%);
 				transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+				.controlPanelMenuObject {
+					width: fit-content;
+					height: fit-content;
+					margin-right: 10px;
+					&[name="element"] {
+						padding: 10px;
+					}
+				}
 			}
 		}
 		.controlPanelInfo {

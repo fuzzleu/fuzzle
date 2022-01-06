@@ -1,6 +1,3 @@
-const path = require("path")
-const mode = process.env.NODE_ENV === "production"
-
 module.exports = {
 	basePath: "",
 	distDir: ".next",
@@ -20,6 +17,7 @@ module.exports = {
 		API_URL: process.env.API_URL,
 		GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
 	},
+	mode: process.env.NODE_ENV === "production",
 	async redirects() {
 		return [
 			{

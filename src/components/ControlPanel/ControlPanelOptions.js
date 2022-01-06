@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useProject } from "../Providers"
 
-import style from "../../styles/controlPanel.module.scss"
+import style from "styles/controlPanel.module.scss"
 import ControlPanelMenu from "./ControlPanelMenu"
 
 const ControlPanelOptions = () => {

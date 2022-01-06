@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useProject } from "../Providers"
 
 import Modal from "./Modal"
-import style from "../../styles/modal.module.scss"
+import style from "styles/modal.module.scss"
 
 const CanvasSizeModal = ({ onClose }) => {
 	const { project, setProject } = useProject()

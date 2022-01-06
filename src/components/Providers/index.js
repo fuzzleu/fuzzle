@@ -4,13 +4,6 @@ import Head from "next/head"
 const ProjectContext = createContext({})
 export const useProject = () => useContext(ProjectContext)
 
-const initialProject = {
-	name: "New project",
-	canvas: [720, 400],
-	zoom: 1,
-	mode: "cursor",
-}
-
 const ProjectProvider = ({ children, userServer, projectServer }) => {
 	const [user, setUser] = useState(userServer)
 	const [project, setProject] = useState(projectServer ? projectServer : null)

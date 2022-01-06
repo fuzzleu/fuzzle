@@ -1,6 +1,7 @@
-import { useProject } from "../Providers"
 import Draggable from "react-draggable"
-import style from "../../styles/app.module.scss"
+
+import { useProject } from "../Providers"
+import style from "styles/app.module.scss"
 
 const Canvas = () => {
 	const { project } = useProject()

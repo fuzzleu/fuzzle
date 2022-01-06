@@ -1,6 +1,6 @@
 import { useProject } from "../Providers"
 
-import style from "../../styles/controlPanel.module.scss"
+import style from "styles/controlPanel.module.scss"
 
 const ControlPanelInfo = () => {
 	const { project } = useProject()

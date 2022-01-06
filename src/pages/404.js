@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Application from "../components"
+import Application from "components"
 
 const Custom404 = () => {
 	return (

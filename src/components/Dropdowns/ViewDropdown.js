@@ -1,5 +1,5 @@
 import { useProject } from "../Providers"
-import style from "../../styles/dropdown.module.scss"
+import style from "styles/dropdown.module.scss"
 
 const ViewDropdown = ({ setDropdowns }) => {
 	const { setProject, project } = useProject()

@@ -1,4 +1,4 @@
-import style from "../../styles/dropdown.module.scss"
+import style from "styles/dropdown.module.scss"
 
 const ImageDropdown = ({ setDropdowns, setModals }) => {
 	const closeDropdown = () =>

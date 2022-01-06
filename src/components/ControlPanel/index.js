@@ -1,7 +1,7 @@
 import { ResizableBox } from "react-resizable"
 import "react-resizable/css/styles.css"
 
-import style from "../../styles/controlPanel.module.scss"
+import style from "styles/controlPanel.module.scss"
 import ControlPanelInfo from "./ControlPanelInfo"
 import ControlPanelOptions from "./ControlPanelOptions"
 

@@ -4,8 +4,8 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import nookies, { setCookie } from "nookies"
 
-import { Wrapper } from "../components"
-import style from "../styles/app.module.scss"
+import { Wrapper } from "components"
+import style from "styles/app.module.scss"
 
 const Account = ({ user }) => {
 	const router = useRouter()

@@ -1,8 +1,6 @@
 import { useState } from "react"
 import { useProject } from "../Providers"
 
-import { GitHub } from "../../lib/icons/Social"
-import style from "../../styles/app.module.scss"
 import AccountDropdown from "../Dropdowns/AccountDropdown"
 import FileDropdown from "../Dropdowns/FileDropdown"
 import EditDropdown from "../Dropdowns/EditDropdown"
@@ -12,6 +10,8 @@ import NewFileModal from "../Modals/NewFileModal"
 import AuthModal from "../Modals/AuthModal"
 import AboutModal from "../Modals/AboutModal"
 import CanvasSizeModal from "../Modals/CanvasSizeModal"
+import { GitHub } from "lib/icons/Social"
+import style from "styles/app.module.scss"
 
 const AppRow = () => {
 	const { user, project } = useProject()

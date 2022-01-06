@@ -1,6 +1,7 @@
 import Draggable from "react-draggable"
 import ReactModal from "react-modal"
-import style from "../../styles/modal.module.scss"
+
+import style from "styles/modal.module.scss"
 
 ReactModal.setAppElement("#main")
 

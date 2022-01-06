@@ -1,8 +1,8 @@
 import { useState } from "react"
 import nookies from "nookies"
 
-import { Wrapper } from "../../components"
-import style from "../../styles/auth.module.scss"
+import { Wrapper } from "components"
+import style from "styles/auth.module.scss"
 
 const ResetPasswordToken = ({ token }) => {
 	const [state, setState] = useState({

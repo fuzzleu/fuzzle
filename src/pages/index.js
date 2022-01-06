@@ -1,7 +1,7 @@
 import nookies from "nookies"
 
-import ProjectProvider from "../components/Providers"
-import Application from "../components"
+import ProjectProvider from "components/Providers"
+import Application from "components"
 
 const App = ({ userServer, projectServer }) => {
 	return (
