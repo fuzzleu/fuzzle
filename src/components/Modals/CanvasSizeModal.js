@@ -4,7 +4,7 @@ import { useProject } from "../Providers"
 import Modal from "./Modal"
 import style from "styles/modal.module.scss"
 
-const CanvasSizeModal = ({ onClose }) => {
+export default ({ onClose }) => {
 	const { project, setProject } = useProject()
 	const [form, setForm] = useState({
 		width: project.canvas[0],
@@ -69,5 +69,3 @@ const CanvasSizeModal = ({ onClose }) => {
 		</Modal>
 	)
 }
-
-export default CanvasSizeModal

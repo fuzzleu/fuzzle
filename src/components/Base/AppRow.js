@@ -10,6 +10,7 @@ import NewFileModal from "../Modals/NewFileModal"
 import AuthModal from "../Modals/AuthModal"
 import AboutModal from "../Modals/AboutModal"
 import CanvasSizeModal from "../Modals/CanvasSizeModal"
+import ExportModal from "../Modals/ExportModal"
 import { GitHub } from "lib/icons/Social"
 import style from "styles/app.module.scss"
 
@@ -27,6 +28,7 @@ const AppRow = () => {
 		auth: false,
 		about: user ? false : true,
 		canvasSize: false,
+		export: false,
 	})
 
 	const handleChange = (e) =>
@@ -177,6 +179,16 @@ const AppRow = () => {
 						setModals({
 							...modals,
 							canvasSize: !modals.canvasSize,
+						})
+					}
+				/>
+			)}
+			{modals.export && (
+				<ExportModal
+					onClose={() =>
+						setModals({
+							...modals,
+							export: !modals.export,
 						})
 					}
 				/>

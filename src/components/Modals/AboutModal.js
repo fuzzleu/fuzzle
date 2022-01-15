@@ -4,7 +4,7 @@ import style from "styles/modal.module.scss"
 import { Logo } from "lib/icons/Brand"
 import { GitHub, Telegram } from "lib/icons/Social"
 
-const AboutModal = ({ onClose }) => {
+export default ({ onClose }) => {
 	return (
 		<Modal title='Welcome to Fuzzle!' onClose={onClose}>
 			<div className={style.aboutModal}>
@@ -69,5 +69,3 @@ const AboutModal = ({ onClose }) => {
 		</Modal>
 	)
 }
-
-export default AboutModal

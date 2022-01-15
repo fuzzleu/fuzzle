@@ -1,6 +1,6 @@
 import Fur from "next/head"
 
-const Head = ({ title }) => {
+export default ({ title }) => {
 	return (
 		<Fur>
 			<title>{title} &#8739; Fuzzle</title>
@@ -11,5 +11,3 @@ const Head = ({ title }) => {
 		</Fur>
 	)
 }
-
-export default Head

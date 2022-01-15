@@ -7,7 +7,7 @@ import nookies, { setCookie } from "nookies"
 import { Wrapper } from "components"
 import style from "styles/app.module.scss"
 
-const Account = ({ user }) => {
+export default ({ user }) => {
 	const router = useRouter()
 	const [state, setState] = useState({
 		name: "",
@@ -116,5 +116,3 @@ export async function getServerSideProps(ctx) {
 		},
 	}
 }
-
-export default Account

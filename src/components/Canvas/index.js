@@ -1,10 +1,21 @@
 import Draggable from "react-draggable"
-
 import { useProject } from "../Providers"
+
+import CanvasObject from "./CanvasObject"
+import CanvasText from "./CanvasText"
 import style from "styles/app.module.scss"
 
 const Canvas = () => {
 	const { project } = useProject()
+
+	const props = []
+	for (let i = 0; i < project.objects.length; i++) {
+		const obj = project.objects[i]
+		if (obj.type === "object")
+			props.push(<CanvasObject key={i} obj={obj} i={i} />)
+		if (obj.type === "text")
+			props.push(<CanvasText key={i} obj={obj} i={i} />)
+	}
 
 	return (
 		<main style={{ transform: `scale(${project.zoom})` }}>
@@ -32,8 +43,12 @@ const Canvas = () => {
 						style={{
 							width: project.canvas[0] + "px",
 							height: project.canvas[1] + "px",
+							backgroundImage: project.background,
+							backgroundColor: project.background || "white",
 						}}
-					></div>
+					>
+						{props}
+					</div>
 				</div>
 			</Draggable>
 		</main>

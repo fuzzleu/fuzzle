@@ -4,7 +4,7 @@ import Head from "next/head"
 const ProjectContext = createContext({})
 export const useProject = () => useContext(ProjectContext)
 
-const ProjectProvider = ({ children, userServer, projectServer }) => {
+export default ({ children, userServer, projectServer }) => {
 	const [user, setUser] = useState(userServer)
 	const [project, setProject] = useState(projectServer ? projectServer : null)
 
@@ -52,5 +52,3 @@ const ProjectProvider = ({ children, userServer, projectServer }) => {
 		</>
 	)
 }
-
-export default ProjectProvider

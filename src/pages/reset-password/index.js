@@ -5,7 +5,7 @@ import nookies from "nookies"
 import { Wrapper } from "components"
 import style from "styles/auth.module.scss"
 
-const ResetPassword = () => {
+export default () => {
 	const router = useRouter()
 	const [email, setEmail] = useState("")
 
@@ -83,5 +83,3 @@ export async function getServerSideProps(ctx) {
 
 	return { props: {} }
 }
-
-export default ResetPassword

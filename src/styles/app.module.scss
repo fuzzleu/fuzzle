@@ -71,12 +71,12 @@
 					background: $dark-2;
 				}
 				svg {
-					height: 15px;
+					height: 20px;
 					fill: $svg;
 				}
-				&[name="text"] {
+				&[name="cursor"] {
 					svg {
-						height: 20px;
+						height: 14px;
 					}
 				}
 				&.active {
@@ -91,14 +91,16 @@
 			border: 1px solid $dark-2;
 			.canvasBox {
 				@include flex-column;
+				box-shadow: $shadow-darken;
 				.handle {
 					background: $dark-4;
 					cursor: move;
 					border-radius: 6px 6px 0 0;
 				}
 				#canvas {
-					background: white;
-					box-shadow: $shadow-darken;
+					background-repeat: no-repeat;
+					background-position: center center;
+					background-size: cover;
 					z-index: 1;
 				}
 			}

@@ -11,12 +11,12 @@ const MenuTemplates = () => {
 				name='template'
 			>
 				<Image
-					src={`/templates/${i}.jpg`}
+					src={`/lib/templates/${i}.jpg`}
 					alt={`template${i}`}
-					width={32}
-					height={32}
+					width={200}
+					height={100}
 					layout='fixed'
-					quality={5}
+					quality={10}
 					objectFit='cover'
 				/>
 			</div>

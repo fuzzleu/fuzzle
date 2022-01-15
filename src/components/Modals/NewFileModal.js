@@ -4,7 +4,7 @@ import { useProject } from "../Providers"
 import Modal from "./Modal"
 import style from "styles/modal.module.scss"
 
-const NewFileModal = ({ onClose }) => {
+export default ({ onClose }) => {
 	const { setProject } = useProject()
 	const [form, setForm] = useState({
 		name: "",
@@ -39,6 +39,7 @@ const NewFileModal = ({ onClose }) => {
 		setProject({
 			name: form.name,
 			canvas: [+form.width, +form.height],
+			objects: [],
 		})
 		onClose()
 	}
@@ -139,5 +140,3 @@ const NewFileModal = ({ onClose }) => {
 		</Modal>
 	)
 }
-
-export default NewFileModal

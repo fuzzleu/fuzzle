@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Application from "components"
 
-const Custom404 = () => {
+export default () => {
 	return (
 		<Application title={"404 Not Found"}>
 			<h1
@@ -35,5 +35,3 @@ const Custom404 = () => {
 		</Application>
 	)
 }
-
-export default Custom404

@@ -15,21 +15,6 @@ module.exports = {
 	reactStrictMode: false,
 	env: {
 		API_URL: process.env.API_URL,
-		GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
 	},
 	mode: process.env.NODE_ENV === "production",
-	async redirects() {
-		return [
-			{
-				source: "/user",
-				destination: "/account",
-				permanent: true,
-			},
-			{
-				source: "/user/:name/events",
-				destination: "/user/:name",
-				permanent: true,
-			},
-		]
-	},
 }

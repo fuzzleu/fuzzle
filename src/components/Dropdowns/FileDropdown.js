@@ -56,7 +56,19 @@ const FileDropdown = ({ setDropdowns, setModals }) => {
 			>
 				Import file
 			</button>
-			<button className={style.dropdownBtn}>Export as..</button>
+			<button
+				className={style.dropdownBtn}
+				onClick={() =>
+					setModals((prevState) => {
+						return {
+							...prevState,
+							export: !prevState.export,
+						}
+					})
+				}
+			>
+				Export as..
+			</button>
 			<input type='file' ref={inputFile} style={{ display: "none" }} />
 		</div>
 	)

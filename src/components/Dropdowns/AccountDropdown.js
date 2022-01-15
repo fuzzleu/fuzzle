@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useProject } from "../Providers"
 import Link from "next/link"
 import { destroyCookie } from "nookies"
@@ -5,7 +6,7 @@ import { destroyCookie } from "nookies"
 import style from "styles/dropdown.module.scss"
 
 const AccountDropdown = ({ setDropdowns }) => {
-	const { setUser } = useProject()
+	const { user, setUser } = useProject()
 
 	const closeDropdown = () =>
 		setDropdowns((prevState) => {
@@ -15,19 +16,16 @@ const AccountDropdown = ({ setDropdowns }) => {
 			}
 		})
 
-	const logout = () => {
-		// axios
-		// 	.post(`${process.env.API_URL}/auth/signout`, null, {
-		// 		headers: { Authorization: user.token },
-		// 		withCredentials: true,
-		// 	})
-		// 	.then(() => {
-		// 		destroyCookie(null, "user", { path: "/" })
-		// 		return "Goodbye!"
-		// 	})
-		destroyCookie(null, "user", { path: "/" })
-		setUser(null)
-	}
+	const logout = () =>
+		axios
+			.post(`/auth/signout`, null, {
+				headers: { Authorization: user.token },
+				withCredentials: true,
+			})
+			.then(() => {
+				destroyCookie(null, "user", { path: "/" })
+				setUser(null)
+			})
 
 	return (
 		<div

@@ -77,19 +77,21 @@ const ControlPanelOptions = () => {
 				</button>
 				{state.templates && <ControlPanelMenu type='templates' />}
 			</div>
-			<div className={style.controlPanelBox}>
-				<button
-					className={style.controlPanelOption}
-					name='userTemplates'
-					value={state.userTemplates}
-					onClick={handleChange}
-				>
-					Your templates
-				</button>
-				{state.userTemplates && (
-					<ControlPanelMenu type='userTemplates' />
-				)}
-			</div>
+			{project && (
+				<div className={style.controlPanelBox}>
+					<button
+						className={style.controlPanelOption}
+						name='userTemplates'
+						value={state.userTemplates}
+						onClick={handleChange}
+					>
+						Your templates
+					</button>
+					{state.userTemplates && (
+						<ControlPanelMenu type='userTemplates' />
+					)}
+				</div>
+			)}
 		</div>
 	)
 }

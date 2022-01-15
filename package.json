@@ -1,40 +1,48 @@
 {
-  "name": "fuzzle-next",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "next start",
-    "build": "next build",
-    "dev": "next dev",
-    "lint": "next lint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PAXANDDOS/fuzzle-next.git"
-  },
-  "keywords": [
-    "photoshop"
-  ],
-  "author": "Paul Litovka",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/PAXANDDOS/fuzzle-next/issues"
-  },
-  "homepage": "https://github.com/PAXANDDOS/fuzzle-next#readme",
-  "dependencies": {
-    "axios": "^0.24.0",
-    "next": "^12.0.7",
-    "nookies": "^2.5.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-draggable": "^4.4.4",
-    "react-modal": "^3.14.4",
-    "react-resizable": "^3.0.4",
-    "sass": "^1.45.1"
-  },
-  "devDependencies": {
-    "eslint": "8.5.0",
-    "eslint-config-next": "12.0.7"
-  }
+	"name": "fuzzle-next",
+	"version": "0.7.5",
+	"description": "Fuzzle is an onine service for graphic design for creating your own masterpieces.",
+	"main": "index.js",
+	"scripts": {
+		"start": "next start",
+		"build": "next build",
+		"dev": "next dev",
+		"lint": "next lint"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PAXANDDOS/fuzzle-next.git"
+	},
+	"keywords": [
+		"photoshop",
+		"editor",
+		"online-editor",
+		"image-editor",
+		"drawing",
+		"drawing-tool",
+		"creative"
+	],
+	"author": "Paul Litovka",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/PAXANDDOS/fuzzle-next/issues"
+	},
+	"homepage": "https://github.com/PAXANDDOS/fuzzle-next#readme",
+	"dependencies": {
+		"axios": "^0.24.0",
+		"next": "^12.0.8",
+		"nookies": "^2.5.2",
+		"react": "^17.0.2",
+		"react-colorful": "^5.5.1",
+		"react-dom": "^17.0.2",
+		"react-draggable": "^4.4.4",
+		"react-modal": "^3.14.4",
+		"react-resizable": "^3.0.4",
+		"sass": "^1.48.0",
+		"use-debouncy": "^4.2.1"
+	},
+	"devDependencies": {
+		"eslint": "8.6.0",
+		"eslint-config-next": "12.0.8"
+	}
 }

@@ -4,7 +4,7 @@ import nookies from "nookies"
 import { Wrapper } from "components"
 import style from "styles/auth.module.scss"
 
-const ResetPasswordToken = ({ token }) => {
+export default ({ token }) => {
 	const [state, setState] = useState({
 		password: "",
 		password_confirmation: "",
@@ -89,5 +89,3 @@ export async function getServerSideProps(ctx) {
 
 	return { props: { token: ctx.params.token } }
 }
-
-export default ResetPasswordToken

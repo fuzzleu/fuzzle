@@ -5,7 +5,7 @@ import style from "styles/modal.module.scss"
 
 ReactModal.setAppElement("#main")
 
-const Modal = ({ children, title, onClose }) => {
+export default ({ children, title, onClose }) => {
 	return (
 		<ReactModal
 			isOpen={true}
@@ -27,5 +27,3 @@ const Modal = ({ children, title, onClose }) => {
 		</ReactModal>
 	)
 }
-
-export default Modal

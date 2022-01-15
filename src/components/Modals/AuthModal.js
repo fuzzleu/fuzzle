@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState } from "react"
 import Link from "next/link"
 import { setCookie } from "nookies"
@@ -7,7 +8,7 @@ import Modal from "./Modal"
 import { Google } from "lib/icons/Social"
 import style from "styles/modal.module.scss"
 
-const AuthModal = ({ onClose }) => {
+export default ({ onClose }) => {
 	const { setUser } = useProject()
 	const [isSignIn, setSignIn] = useState(true)
 	const [form, setForm] = useState({
@@ -20,37 +21,63 @@ const AuthModal = ({ onClose }) => {
 	const handleChange = (e) =>
 		setForm({
 			...form,
-			[e.target.name]: e.target.value,
+			[e.target.name]: e.target.value.trim(),
 		})
-
-	const handleThirdParty = (e) => {}
 
 	const handleSignIn = () => {
-		const cookie = {
-			name: "PAXANDDOS",
-			email: "pashalitovka@gmail.com",
-			image: "https://d3djy7pad2souj.cloudfront.net/munity/avatars/avatar1_munity_H265P.png",
-		}
-		setCookie(null, "user", JSON.stringify(cookie), {
-			maxAge: 162000,
-			path: "/",
-		})
-		setUser(cookie)
-		onClose()
+		for (const key in form)
+			if (!form[key] || form[key].length === 0)
+				switch (key) {
+					case "email":
+					case "password":
+						return console.log(key)
+				}
+		axios
+			.post(
+				"/auth/signin",
+				{
+					email: form.email,
+					password: form.password,
+				},
+				{
+					withCredentials: true,
+				}
+			)
+			.then((res) => {
+				const cookie = JSON.parse(res.data.cookie)
+				setCookie(null, "user", res.data.cookie, {
+					maxAge: cookie.ttl,
+					path: "/",
+				})
+				setUser(cookie)
+				onClose()
+			})
 	}
 
 	const handleSignUp = () => {
-		const cookie = {
-			name: "PAXANDDOS",
-			email: "pashalitovka@gmail.com",
-			image: "https://d3djy7pad2souj.cloudfront.net/munity/avatars/avatar1_munity_H265P.png",
-		}
-		setCookie(null, "user", JSON.stringify(cookie), {
-			maxAge: 162000,
-			path: "/",
-		})
-		setUser(cookie)
-		onClose()
+		for (const key in form) if (!form[key] || form[key].length === 0) return
+		axios
+			.post(
+				"/auth/signup",
+				{
+					name: form.name,
+					email: form.email,
+					password: form.password,
+					password_confirmation: form.password_confirmation,
+				},
+				{
+					withCredentials: true,
+				}
+			)
+			.then((res) => {
+				const cookie = JSON.parse(res.data.cookie)
+				setCookie(null, "user", res.data.cookie, {
+					maxAge: cookie.ttl,
+					path: "/",
+				})
+				setUser(cookie)
+				onClose()
+			})
 	}
 
 	const switchForm = () => setSignIn(!isSignIn)
@@ -63,13 +90,13 @@ const AuthModal = ({ onClose }) => {
 						onSubmit={(e) => handleSignIn(e.preventDefault())}
 						className={style.defaultModal}
 					>
-						<label>Your name</label>
+						<label>Your email</label>
 						<input
-							type='text'
-							name='name'
-							placeholder='Your name'
+							type='email'
+							name='email'
+							placeholder='Your email'
 							maxLength='16'
-							value={form.name}
+							value={form.email}
 							className={style.modalInput}
 							onChange={handleChange}
 						/>
@@ -83,16 +110,14 @@ const AuthModal = ({ onClose }) => {
 							onChange={handleChange}
 						/>
 						<input type='submit' value='Sign in' />
-						<button
+						<a
 							className={style.authThirdParty}
 							name='google'
-							onClick={(e) =>
-								handleThirdParty(e.preventDefault())
-							}
+							href={`${process.env.API_URL}/auth/signin/google`}
 						>
 							<Google />
 							Continue with&nbsp;<b>Google</b>
-						</button>
+						</a>
 						<span className={style.authOther}>
 							Forgot your password?{" "}
 							<Link href='/reset-password'>
@@ -158,7 +183,7 @@ const AuthModal = ({ onClose }) => {
 							<button
 								onClick={(e) => switchForm(e.preventDefault())}
 							>
-								Sign in!
+								Sign up!
 							</button>
 						</span>
 					</form>
@@ -167,5 +192,3 @@ const AuthModal = ({ onClose }) => {
 		</>
 	)
 }
-
-export default AuthModal

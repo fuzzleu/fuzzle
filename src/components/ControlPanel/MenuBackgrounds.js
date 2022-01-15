@@ -1,16 +1,22 @@
 import Image from "next/image"
 import style from "styles/controlPanel.module.scss"
 
-const MenuBackgrounds = () => {
+const MenuBackgrounds = ({ project, setProject }) => {
 	const objects = []
 	for (let i = 0; i < 9; i++)
 		objects.push(
 			<div
 				className={style.controlPanelMenuObject}
 				key={`background${i}`}
+				onClick={() => {
+					setProject({
+						...project,
+						background: `url(lib/backgrounds/${i}.jpg)`,
+					})
+				}}
 			>
 				<Image
-					src={`/backgrounds/${i}.jpg`}
+					src={`/lib/backgrounds/${i}.jpg`}
 					alt={`background${i}`}
 					width={200}
 					height={100}
