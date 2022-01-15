@@ -11,7 +11,7 @@ export default ({ userServer, projectServer }) => {
 	)
 }
 
-export async function getServerSideProps(ctx) {
+export const getServerSideProps = async (ctx) => {
 	const cookie = nookies.get(ctx).user
 
 	return {

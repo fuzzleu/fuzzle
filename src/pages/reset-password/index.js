@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
+import axios from "axios"
 import nookies from "nookies"
 
 import { Wrapper } from "components"
@@ -10,37 +11,16 @@ export default () => {
 	const [email, setEmail] = useState("")
 
 	const handleSubmit = () => {
-		const api = {
-			headers: {
-				"Content-Type": "application/json",
-				Accept: "application/json",
-			},
-			data: {
+		axios
+			.post("/auth/reset-password", {
 				email: email,
-			},
-			url: `${process.env.API_URL}/auth/reset-password`,
-		}
-		const promise = axios.post(api.url, api.data, {
-			headers: api.headers,
-		})
-		toast.promise(promise, {
-			loading: "Sending reset link...",
-			success: (response) => {
-				return response.data.message
-			},
-			error: (error) => {
-				if (error.response.data.errors) {
-					if (error.response.data.errors.email)
-						for (
-							let i = 0;
-							i < error.response.data.errors.email.length;
-							i++
-						)
-							toast.error(error.response.data.errors.email[i])
-				}
-				return error.response.data.message
-			},
-		})
+			})
+			.then((res) => {
+				alert(res.data.message)
+			})
+			.catch((err) => {
+				alert(err.response.data.message)
+			})
 	}
 
 	return (
@@ -72,7 +52,7 @@ export default () => {
 	)
 }
 
-export async function getServerSideProps(ctx) {
+export const getServerSideProps = async (ctx) => {
 	if (!!nookies.get(ctx).user)
 		return {
 			redirect: {

@@ -10,46 +10,24 @@ export default ({ token }) => {
 		password_confirmation: "",
 	})
 
-	const handleChange = (target) =>
+	const handleChange = ({ target }) =>
 		setState({
 			...state,
 			[target.name]: target.value,
 		})
 
 	const handleSubmit = () => {
-		const api = {
-			headers: {
-				"Content-Type": "application/json",
-				Accept: "application/json",
-			},
-			data: {
-				password: password,
-				password_confirmation: passwordConfirm,
-			},
-			url: `${process.env.API_URL}/auth/reset-password/${token}`,
-		}
-		const promise = axios.post(api.url, api.data, {
-			headers: api.headers,
-		})
-		toast.promise(promise, {
-			loading: "Updating ...",
-			success: (response) => {
-				location.replace("/signin")
-				return response.data.message
-			},
-			error: (error) => {
-				if (error.response.data.errors) {
-					if (error.response.data.errors.email)
-						for (
-							let i = 0;
-							i < error.response.data.errors.email.length;
-							i++
-						)
-							toast.error(error.response.data.errors.email[i])
-				}
-				return error.response.data.message
-			},
-		})
+		axios
+			.post(`/auth/reset-password/${token}`, {
+				password: state.password,
+				password_confirmation: state.password_confirmation,
+			})
+			.then((res) => {
+				alert(res.data.message)
+			})
+			.catch((err) => {
+				alert(err.response.data.message)
+			})
 	}
 
 	return (
@@ -62,14 +40,14 @@ export default ({ token }) => {
 						name='password'
 						placeholder='New password'
 						value={state.password}
-						onChange={(e) => handleChange(e.target)}
+						onChange={handleChange}
 					/>
 					<input
 						type='password'
 						name='password_confirmation'
 						placeholder='Repeat new password'
 						value={state.password_confirmation}
-						onChange={(e) => handleChange(e.target)}
+						onChange={handleChange}
 					/>
 					<input type='submit' value='Submit' />
 				</form>
@@ -83,7 +61,7 @@ export async function getServerSideProps(ctx) {
 		return {
 			redirect: {
 				permanent: false,
-				destination: "/signin",
+				destination: "/",
 			},
 		}
 
