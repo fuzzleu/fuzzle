@@ -29,7 +29,7 @@
 	},
 	"homepage": "https://github.com/PAXANDDOS/fuzzle-next#readme",
 	"dependencies": {
-		"axios": "^0.24.0",
+		"axios": "^0.25.0",
 		"next": "^12.0.8",
 		"nookies": "^2.5.2",
 		"react": "^17.0.2",
@@ -42,7 +42,7 @@
 		"use-debouncy": "^4.2.1"
 	},
 	"devDependencies": {
-		"eslint": "8.6.0",
+		"eslint": "8.7.0",
 		"eslint-config-next": "12.0.8"
 	}
 }

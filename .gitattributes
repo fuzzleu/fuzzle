@@ -1,6 +1,8 @@
-* text=auto 
+* text=auto
 * eol=lf
-*.css linguist-vendored
-*.scss linguist-vendored
-*.js linguist-vendored
-CHANGELOG.md export-ignore
+*.css linguist-language=CSS
+*.scss linguist-language=SCSS
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
+*.md linguist-generated
+*.example linguist-generated
