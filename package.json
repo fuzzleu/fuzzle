@@ -29,8 +29,8 @@
 	},
 	"homepage": "https://github.com/PAXANDDOS/fuzzle-next#readme",
 	"dependencies": {
-		"axios": "^0.25.0",
-		"next": "^12.0.10",
+		"axios": "^0.26.1",
+		"next": "^12.1.4",
 		"nookies": "^2.5.2",
 		"react": "^17.0.2",
 		"react-colorful": "^5.5.1",
@@ -38,11 +38,11 @@
 		"react-draggable": "^4.4.4",
 		"react-modal": "^3.14.4",
 		"react-resizable": "^3.0.4",
-		"sass": "^1.49.4",
-		"use-debouncy": "^4.2.1"
+		"sass": "^1.49.11",
+		"use-debouncy": "^4.3.0"
 	},
 	"devDependencies": {
-		"eslint": "8.8.0",
-		"eslint-config-next": "12.0.10"
+		"eslint": "8.12.0",
+		"eslint-config-next": "12.1.4"
 	}
 }
